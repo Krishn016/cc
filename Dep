@@ -1,0 +1,34 @@
+• Navigate to the AWS Management Console and search for "VPC."
+
+• Select "VPC" under services in the search results.
+
+• Scroll down to "Security Groups" in the VPC navigation pane.
+
+Click "Create Security Group."
+
+• Provide a name and description for the security group.
+
+• Select the appropriate VPC if you have multiple.
+
+Under Inbound rules, add a rule for HTTP (port 80) with the source set to "anywhere IPv4."
+
+• Add a rule for SSH (port 22) with the source set to "My IP" for added security.
+
+• Create the security group.
+
+
+Search for "EC2" in the AWS Management Console and select it.
+
+• Click "Launch Instance."
+
+• Give your EC2 instance a name.
+
+• Choose Amazon Linux 2 as the Amazon Machine Image.
+
+• Select t2.micro as the instance type.
+
+• Create a new key pair and choose the .pem format.
+
+• Select your key pair and the security group you created.
+
+• Launch the instance and wait for it to pass the status check
