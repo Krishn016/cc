@@ -1,0 +1,35 @@
+pip install django djangorestframework
+django-admin startproject myproject
+cd myproject
+python manage.py startapp myapp
+Update INSTALLED_APPS in settings.py
+Add rest_framework and your app (myapp):
+INSTALLED_APPS = [
+    ...,
+    'rest_framework',
+    'myapp',
+]
+from django.http import JsonResponse
+
+def sample_api(request):
+    data = {
+        "message": "Hello, this is a response from the Django API!",
+        "status": "success"
+    }
+    return JsonResponse(data)
+from django.urls import path
+from .views import sample_api
+
+urlpatterns = [
+    path('api/sample/', sample_api, name='sample_api'),
+]
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('myapp.urls')),  # Include app URLs
+]
+python manage.py runserver
+Your API will be available at http://127.0.0.1:8000/api/sample/.
+
